@@ -1,4 +1,5 @@
 using System.Text;
+using System.Reflection;
 using DotNetEnv;
 using EventForge.Api.Authentication;
 using EventForge.Api.Configuration;
@@ -30,6 +31,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen(options =>
 {
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (File.Exists(xmlPath))
+    {
+        options.IncludeXmlComments(xmlPath);
+    }
+
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "EventForge API",
@@ -142,16 +150,19 @@ app.Use(async (context, next) =>
     await next();
 });
 app.UseRateLimiter();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapOpenApi();
 
-app.MapGet("/", () => Results.Ok(new
+app.MapGet("/api/meta", () => Results.Ok(new
 {
     service = "EventForge API",
-    version = "0.2.0",
+    version = "1.0.0",
     status = "healthy",
-    documentation = "/swagger"
+    documentation = "/swagger",
+    health = new[] { "/health/live", "/health/ready" }
 }));
 
 app.MapHealthChecks("/health/live", new HealthCheckOptions
