@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/EventForge.Api/EventForge.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/EventForge.Api.Tests/EventForge.Api.Tests.csproj" />
+  </Folder>
+</Solution>
