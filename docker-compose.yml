@@ -11,7 +11,7 @@ services:
       MONGO_CONNECTION_STRING: mongodb://mongo:27017
       MONGO_DATABASE_NAME: eventforge
       REDIS_CONNECTION_STRING: redis:6379
-      REDIS_INSTANCE_NAME: eventforge:
+      REDIS_INSTANCE_NAME: "eventforge:"
       JWT_ISSUER: ${JWT_ISSUER:-EventForge.Api}
       JWT_AUDIENCE: ${JWT_AUDIENCE:-EventForge.Client}
       JWT_SIGNING_KEY: ${JWT_SIGNING_KEY:?Set JWT_SIGNING_KEY in .env before starting Docker Compose}
