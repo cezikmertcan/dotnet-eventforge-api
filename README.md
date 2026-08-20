@@ -1,10 +1,9 @@
 # EventForge API
 
-[![CI](https://github.com/cezikmertcan/dotnet-eventforge-api/actions/workflows/ci.yml/badge.svg)](https://github.com/cezikmertcan/dotnet-eventforge-api/actions/workflows/ci.yml)
+[![CI](https://github.com/cezikmertcan/eventforge-api/actions/workflows/ci.yml/badge.svg)](https://github.com/cezikmertcan/eventforge-api/actions/workflows/ci.yml)
 
 EventForge is a production-minded .NET 10 backend for planning and running community events. It demonstrates a related MongoDB document model, JWT authentication with roles, Redis cache-aside reads, Dockerized local infrastructure, and a documented API surface.
 
-The repository is intentionally private while the final public-release review is completed.
 
 ## What it demonstrates
 
